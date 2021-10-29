@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Will print "Best School" ten times
+
+INCRE=0
+
+until [ $INCRE -eq 10 ]
+do
+	echo "Best School"
+	((INCRE++))
+done
