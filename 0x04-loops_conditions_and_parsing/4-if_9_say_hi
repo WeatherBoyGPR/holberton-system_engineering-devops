@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Prints "Best School" 10 times, prints "Hi" on the 9th iteration
+
+INCRE=0
+while [ $INCRE -lt 10 ]
+do
+	echo "Best School"
+	if [ $INCRE -eq 8 ]
+	then
+		echo "Hi"
+	fi
+	(( INCRE++ ))
+done
