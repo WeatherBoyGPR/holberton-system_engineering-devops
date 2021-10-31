@@ -3,7 +3,7 @@
 
 INCRE=1
 
-until [ $INCRE -eq 21 ]
+while [ $INCRE -lt 21 ]
 do
 	echo $INCRE
 	case $INCRE in
