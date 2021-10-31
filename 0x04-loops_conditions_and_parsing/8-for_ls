@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Will display the content of the current directory in list format
+
+RESIN=$(ls)
+
+for _ in $RESIN
+do
+	echo "$_" | cut -d '-' -f2
+done
