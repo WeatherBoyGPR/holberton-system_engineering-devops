@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Will print all times
+
+HOURINC=0
+
+while [ $HOURINC -lt 13 ]
+do
+	echo "Hour: $HOURINC"
+	MINIINC=1
+	while [ $MINIINC -lt 60 ]
+	do
+		echo $MINIINC
+		(( MINIINC++ ))
+	done
+	(( HOURINC++ ))
+done
