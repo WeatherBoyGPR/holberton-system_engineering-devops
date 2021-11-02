@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# This body can not be killed
+
+trap 'echo "I am invincible!!!"' SIGTERM
+
+INCRE=1
+while [ $INCRE ]
+do
+	echo "To infinity and beyond"
+	sleep 2
+done
