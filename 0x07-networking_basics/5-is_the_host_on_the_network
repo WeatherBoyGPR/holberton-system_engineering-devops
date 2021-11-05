@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Will ping an IP address passed as an argument
+
+ONIGARGS="$@"
+
+if [ ONIGARGS ]
+then
+	ping -c 5 $ONIGARGS
+else
+	echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
+fi
