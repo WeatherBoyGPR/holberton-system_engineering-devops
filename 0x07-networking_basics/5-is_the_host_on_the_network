@@ -3,7 +3,7 @@
 
 ONIGARGS="$@"
 
-if [ ONIGARGS ]
+if [ ONIGARGS == "" ]
 then
 	ping -c 5 $ONIGARGS
 else
