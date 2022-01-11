@@ -1,0 +1,4 @@
+# Config File
+Host 34.139.37.125
+  IdentityFile ~/.ssh/school
+  Batchmode yes
