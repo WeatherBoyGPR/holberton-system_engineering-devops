@@ -1,11 +1,4 @@
 #!/usr/bin/env bash
 # Will install Nginx
 sudo apt-get -y install nginx
-echo "<html>\
-    <head>\
-        <title>Welcome to Example.com!</title>\
-    </head>\
-    <body>\
-        <h1>Success! The example.com server block is working!</h1>\
-    </body>\
-</html>" > /var/www/html
+echo "Hello World" > /var/www/html/source.html
