@@ -5,13 +5,12 @@ sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
 touch /var/www/html/index.html
 echo "Hello World" | sudo tee /var/www/html/index.html
-touch /var/www/html/custom_404.html
-echo "Ceci n'est pas une page" | sudo tee /var/www/html/custom_404.html
+sudo touch /usr/share/html/custom_404.html
+echo "Ceci n'est pas une page" | sudo tee /usr/share/html/custom_404.html
 sudo sed -i "41i\ \trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;\
 \terror_page 404/custom_404.html;\n\
 \tlocation = /custom_404.html{\n\
-\t\t/var/www/html;\n\
-\t\tinternal\n\
-\t\t}\n\
-\t}\n" /etc/nginx/sites-available/default
+\t\t/usr/share/nginx/html;\n\
+\t\tinternal;\n\
+\t\t}\n" /etc/nginx/sites-available/default
 sudo service nginx restart
