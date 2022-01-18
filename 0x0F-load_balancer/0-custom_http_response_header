@@ -14,5 +14,5 @@ sudo sed -i "41i\ \n\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-
 \t\troot /usr/share/nginx/html;\n\
 \t\tinternal;\n\
 \t}\n
-\tadd_header X-Served_By $HOSTNAME\n" /etc/nginx/sites-available/default
+\tadd_header X-Served_By $HOSTNAME;\n" /etc/nginx/sites-available/default
 sudo service nginx restart
