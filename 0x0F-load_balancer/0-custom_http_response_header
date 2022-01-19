@@ -14,7 +14,7 @@ printf "server {
 	listen 80 default_server;
 	listen [::]:80 default_server;
 
-	add_header X-Served_By $HOSTNAME;
+	add_header X-Served_By \$HOSTNAME;
 
 	rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
 
