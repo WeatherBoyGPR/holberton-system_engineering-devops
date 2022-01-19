@@ -10,11 +10,28 @@ echo "Hello World" | sudo tee /var/www/html/index.html
 sudo touch /usr/share/nginx/html/custom_404.html
 echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/custom_404.html
 
-sudo sed -i "41i\ \n\tadd_header X-Served-By \$HOSTNAME;\n\n\
-\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;\n\
-\n\terror_page 404 /custom_404.html;\n\
-\tlocation = /custom_404.html{\n\
-\t\troot /usr/share/nginx/html;\n\
-\t\tinternal;\n\
-\t}\n" /etc/nginx/sites-available/default
+sudo printf "\
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	add_header X-Served_By $HOSTNAME;
+
+	rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
+
+	error_page 404 /custom_404.html;
+	location = /custom_404.html{
+		root /usr/share/nginx/html;
+		internal;
+	}
+
+	root /var/www/html;
+	index index.html index.htm index.nginx-debian.html;
+
+	server_name _;
+
+	location / {
+		try_files $uri $uri/ =404;
+	}
+}" > /etc/nginx/sites-available/default
 sudo service nginx restart
