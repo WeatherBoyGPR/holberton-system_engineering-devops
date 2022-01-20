@@ -10,13 +10,15 @@ echo "Hello World" | sudo tee /var/www/html/index.html
 sudo touch /usr/share/nginx/html/custom_404.html
 echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/custom_404.html
 
-printf "server {
+printf "# nginx config
+server {
 	listen 80 default_server;
 	listen [::]:80 default_server;
 
-	add_header X-Served-By \$HOSTNAME;
+	add_header X-Served-By $HOSTNAME;
 
 	rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
+
 	error_page 404 /custom_404.html;
 	location = /custom_404.html{
 		root /usr/share/nginx/html;
@@ -29,7 +31,7 @@ printf "server {
 	server_name _;
 
 	location / {
-		try_files \$uri \$uri/ =404;
+		try_files $uri $uri/ =404;
 	}
 }" | sudo tee /etc/nginx/sites-available/default
 sudo service nginx restart
