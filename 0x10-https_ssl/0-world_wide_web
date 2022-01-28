@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Will print information in regards to a domain and an optional subdomain
 # Takes two arguments, domain name followed by subdomain (optional)
 
