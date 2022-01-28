@@ -1,0 +1,10 @@
+#!/bin/bash
+# Will print information in regards to a domain and an optional subdomain
+# Takes two arguments, domain name followed by subdomain (optional)
+
+if [ "$2" ]
+then
+	echo "BIG GUY YIOU TOU YOU YOU"
+else
+	echo "LIttLE bABY MAN"
+fi
