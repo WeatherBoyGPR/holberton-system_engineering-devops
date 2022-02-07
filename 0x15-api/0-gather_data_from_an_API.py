@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """ Returns TODO list progress for given employee ID """
 
+import json
 import requests
 import sys
-import json
 
 if __name__ == "__main__":
     url = 'https://jsonplaceholder.typicode.com/'
