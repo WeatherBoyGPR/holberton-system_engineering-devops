@@ -17,6 +17,8 @@ def recurse(subreddit, hot_list=[], lim=100, aft=None, cnt=0):
 
     subred = requests.get(url.format(subreddit), headers=headers,
                           params=params, allow_redirects=False)
+    if subred.status_code == 404:
+        return None
     data = subred.json().get('data')
     params['after'] = data.get('after')
     params['count'] += data.get('dist')
