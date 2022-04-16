@@ -1,0 +1,5 @@
+# SSH client config
+Host 34.148.211.78
+  IdentityFile ~/.ssh/school
+  Batchmode yes
+  PasswordAuthentication no
