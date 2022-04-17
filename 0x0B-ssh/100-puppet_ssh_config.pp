@@ -1,5 +1,5 @@
 # Will configure ssh to use private key ~/.ssh/school
-#include stdlib
+include stdlib
 file_line { 'Identity file source insert':
   path    => '/etc/.ssh/config',
   line    => '  IdentityFile ~/.ssh/school',
