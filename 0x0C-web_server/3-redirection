@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Will set up nginx webserver
+
+# Installs nginx
+sudo apt-get update
+sudo apt-get -y install nginx
+
+# Enables HTTP
+ufw allow 'Nginx HTTP'
+
+# Will create html file containing "Hello World" in plain text
+rm -f /var/www/html/index.nginx-debian.html
+touch /var/www/html/index.html
+echo "Hello World" | sudo tee /var/www/html/index.html
+
+# Configures /redirect to lead to specific video
+sed -i "41i         rewrite ^/redirect_me https://www.youtube.com/watch?v=NHEaYbDWyQE;" /etc/nginx/sites-available/default
+
+# Restart
+service nginx restart
