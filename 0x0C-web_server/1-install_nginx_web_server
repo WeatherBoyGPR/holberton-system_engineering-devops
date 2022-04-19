@@ -5,8 +5,8 @@
 sudo apt-get -y install nginx
 
 # will create html file containing "Hello World" in plain text
-rm -f /var/www/html/index.nginx-debian.html
-echo 'Hello World' | sudo tee /var/www/html/index.html
+#rm -f /var/www/html/index.nginx-debian.html
+#echo 'Hello World' | sudo tee /var/www/html/index.html
 
 # restart
-service nginx start
+service nginx restart
