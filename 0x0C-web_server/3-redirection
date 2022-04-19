@@ -14,7 +14,7 @@ touch /var/www/html/index.html
 echo "Hello World" | sudo tee /var/www/html/index.html
 
 # Configures /redirect to lead to specific video
-sed -i "41i         rewrite ^/redirect_me https://www.youtube.com/watch?v=NHEaYbDWyQE;" /etc/nginx/sites-available/default
+sed -i "41i         rewrite ^/redirect_me https://www.youtube.com/watch?v=NHEaYbDWyQE permanent;" /etc/nginx/sites-available/default
 
 # Restart
 service nginx restart
