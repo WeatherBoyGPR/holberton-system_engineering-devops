@@ -54,8 +54,8 @@ frontend load_balancer
 
 backend webserver
     balance roundrobin
-    server 2763-web-01 34.139.37.125:80 check
-    server 2763-web-02 23.20.78.65:80 check
+    server 2763-web-01 34.148.211.78:80 check
+    server 2763-web-02 54.80.113.160:80 check
 " > /etc/haproxy/haproxy.cfg
 
 # Reboot
