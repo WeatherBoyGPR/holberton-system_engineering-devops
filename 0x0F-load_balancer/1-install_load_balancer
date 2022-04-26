@@ -5,7 +5,7 @@ sudo apt-get -y update
 sudo apt-get -y install haproxy
 
 # Enables init script management
-touch /etc/init.d/haproxy
+touch /etc/default/haproxy
 printf "\
 ENABLED=1
 " > /etc/default/haproxy
@@ -17,7 +17,8 @@ global
         log /dev/log    local0
         log /dev/log    local1 notice
         chroot /var/lib/haproxy
-        stats socket /run/haproxy/admin.sock mode 660 level admin
+        stats socket /run/haproxy/admin.sock mode 660
+level admin-fd listeners
         stats timeout 30s
         user haproxy
         group haproxy
@@ -36,9 +37,9 @@ defaults
         mode    http
         option  httplog
         option  dontlognull
-        timeout connect 5000
-        timeout client  50000
-        timeout server  50000
+	        timeout connect 5000
+        	timeout client  50000
+	        timeout server  50000
         errorfile 400 /etc/haproxy/errors/400.http
         errorfile 403 /etc/haproxy/errors/403.http
         errorfile 408 /etc/haproxy/errors/408.http
