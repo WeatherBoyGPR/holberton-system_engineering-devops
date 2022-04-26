@@ -8,7 +8,7 @@ sudo apt-get -y install haproxy
 touch /etc/init.d/haproxy
 printf "\
 ENABLED=1
-" > /etc/init.d/haproxy
+" > /etc/default/haproxy
 
 # Configures HAproxy config file
 touch /etc/haproxy/haproxy.cfg
