@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Will print information about a subdomain, specification optional
+# If the subdomain is unspecified, will default to below subdomains
+# www, lb-01, web_01. web-02
+
+# Args: SUB DOMAIN, DOMAIN
+function infoget () {
+	INP=$(dig "$1.$2" | grep -A1 ";; ANSWER SECTION:" | grep -v ";; ANSWER SECTION:")
+	FORM="{ printf \"The subdomain %s is a %s record and points to %s\n\", \$6, \$4, \$5}"
+	echo "$INP $1" | awk "$FORM"
+}
+
+if [[ $# -lt 2 ]]
+then
+	infoget "www" "$1"
+	infoget "lb-01" "$1"
+	infoget "web-01" "$1"
+	infoget "web-02" "$1"
+else
+	infoget "$2" "$1"
+fi
