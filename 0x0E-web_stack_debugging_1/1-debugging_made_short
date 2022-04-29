@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Will fix server for debugging project #1
 sudo sed -i 's/8080 default_server/80 default_server/' /etc/nginx/sites-enabled/default
-sudo service nginx stop
+sudo service nginx reload
