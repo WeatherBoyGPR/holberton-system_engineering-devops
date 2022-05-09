@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Will configure ufw firewall
+
+sudo apt-get install ufw
+sudo ufw default deny incoming
+
+# SSH
+sudo ufw allow 22
+
+# HTTP
+sudo ufw allow 80
+
+# HTTPS SSL
+sudo ufw allow 443
+
+# Application
+sudo service nginx stop
+
+sudo ufw enable
+
+sudo service nginx start
