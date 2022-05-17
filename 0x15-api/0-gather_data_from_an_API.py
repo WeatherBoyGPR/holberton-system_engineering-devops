@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """ Will return employee todo list progress from given ID """
 
-from sys import argv
 import requests
+from sys import argv
 
 if __name__ == "__main__":
     url = "https://jsonplaceholder.typicode.com"

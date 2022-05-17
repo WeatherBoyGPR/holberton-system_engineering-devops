@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """ Will dump employee todo list from given ID into JSON file"""
 
-from sys import argv
-import requests
 import json
+import requests
+from sys import argv
 
 if __name__ == "__main__":
     url = "https://jsonplaceholder.typicode.com"
